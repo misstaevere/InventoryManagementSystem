@@ -12,7 +12,7 @@ public class MyOrderDao { // DATA ACCESS OBJECT - WILL BE SENDING DATA
 
 	public void insertMyOrder(MyOrder myOrder) { // METHOD TO ADD CUSTOMERS DATA, // STRING CATENATION
 		// " " to declare int, + '' for strings = 1, 'Piers',
-		String sql = "INSERT INTO my_order VALUES (" + myOrder.getMy_order_ID() + ",'"
+		String sql = "INSERT INTO my_order (fk_customer_ID, my_order_placed) VALUES (" + myOrder.getMy_order_ID() + ",'"
 				+ myOrder.getMy_order_placed() + "'," + myOrder.getMy_order_total() + ")";
 		
 			databaseConnection.sendUpdate(sql);
