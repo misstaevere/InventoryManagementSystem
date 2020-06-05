@@ -13,7 +13,7 @@ public class CustomerDao { // DATA ACCESS OBJECT - WILL BE SENDING DATA
 	public void insertCustomer(Customer customer) { // METHOD TO ADD CUSTOMERS DATA, // STRING
 													// CATENATION
 		// " " to declare int, + '' for strings = 1, 'Piers',
-		String sql = "INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_password) VALUES (" 
+		String sql = "INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_password) VALUES ('" 
 				+ customer.getCustomer_first_name() + "','" + customer.getCustomer_last_name() + "','"
 				+ customer.getCustomer_email() + "','" + customer.getCustomer_password() + "')";
 

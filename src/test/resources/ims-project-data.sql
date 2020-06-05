@@ -1,5 +1,5 @@
 use testdb;
-INSERT INTO item (item_name,  item_price, item_category) VALUES ('Floral Maxi Dress', 95.00), ('Chunky Sandals in Black', 50.00), ('2-pack Face Mask in Bandana Print', 12.00);
+INSERT INTO item (item_name,  item_price) VALUES ('Floral Maxi Dress', 95.00), ('Chunky Sandals in Black', 50.00), ('2-pack Face Mask in Bandana Print', 12.00);
 UPDATE item SET item_price=45 WHERE item_name='Chunky Sandals in Black';
 INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_password) VALUES ('Simon', 'Smith', 'si@mail.co.uk', '123456');
 INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_password) VALUES ('Maria', 'Morris', 'mm@gmail.com', 'qwerty');
