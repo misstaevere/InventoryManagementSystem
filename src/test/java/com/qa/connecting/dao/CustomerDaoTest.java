@@ -62,7 +62,7 @@ public class CustomerDaoTest {
 
 	@AfterClass
 	public static void terminate() throws SQLException {
-		sendToDB(DriverManager.getConnection("jdbc:mysql://127.0.0.1", "root", "root"),
+		sendToDB(DriverManager.getConnection("jdbc:mysql://127.0.0.1/testdb", "root", "root"),
 				TERMINATE_LOCATION);
 		databaseConnection.closeConnection();
 	}
