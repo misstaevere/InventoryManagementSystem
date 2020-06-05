@@ -20,16 +20,16 @@ public class CustomerDao { // DATA ACCESS OBJECT - WILL BE SENDING DATA
 		databaseConnection.sendUpdate(sql);
 	}
 
-	private void selectAllCustomers(Customer customer) {
+	private void selectAllCustomers() {
 		String sql = "SELECT * FROM Customer";
 	}
 
-	private void describeCustomer(Customer customer) {
+	private void describeCustomer() {
 		String sql = "DESCRIBE customer";
 	}
 	
-	private void selectCustomerByNameAndID(Customer customer) {
-		String sql = "SELECT customer_first_name, customer_email FROM customer";
+	private void selectCustomerByName(Customer customer) {
+		String sql = "SELECT customer_first_name, customer_email FROM customer where customer_first_name="+customer.getCustomer_first_name();
 	}
 	
 	private void selectCustomerWhereFirstNameEndsWithS(Customer customer) {
