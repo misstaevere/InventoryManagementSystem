@@ -22,10 +22,10 @@ import com.qa.connecting.model.Customer;
 public class CustomerDaoTest {
 
 	static DatabaseConnection databaseConnection;
-	static final String SCHEMA_LOCATION = "src\\test\\resources\\ims-project-schema.sql";
-	static final String DATA_LOCATION = "src\\test\\resources\\ims-project-data.sql";
-	static final String CLEAR_LOCATION = "src\\test\\resources\\ims-project-deleteDB.sql";
-	static final String TERMINATE_LOCATION = "src\\test\\resources\\ims-project-terminateDB.sql";
+	static final String SCHEMA_LOCATION = "src/test/resources/ims-project-schema.sql";
+	static final String DATA_LOCATION = "src/test/resources/ims-project-data.sql";
+	static final String CLEAR_LOCATION = "src/test/resources/ims-project-deleteDB.sql";
+	static final String TERMINATE_LOCATION = "src/test/resources/ims-project-terminateDB.sql";
 
 	// Reading through the files with the BufferedReader, we car read any file and
 	// execute it on our testdb
