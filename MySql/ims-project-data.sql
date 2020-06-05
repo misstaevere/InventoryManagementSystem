@@ -2,14 +2,14 @@ use shopdb;
 
 -- ITEM
 #Create
-INSERT INTO item (item_ID, item_name, qty_ordered, item_price, item_category)
-VALUES (0, 'Floral Maxi Dress', 1, 95.00, 'Dresses');
+INSERT INTO item (item_ID, item_name, item_price)
+VALUES (0, 'Floral Maxi Dress', 95.00);
 
-INSERT INTO item (item_ID, item_name, qty_ordered, item_price, item_category)
-VALUES (0, 'Chunky Sandals in Black', 1, 50.00, 'Shoes');
+INSERT INTO item (item_ID, item_name, item_price)
+VALUES (0, 'Chunky Sandals in Black', 50.00);
 
-INSERT INTO item (item_ID, item_name, qty_ordered, item_price, item_category)
-VALUES (0, '2-pack Face Mask in Bandana Print', 5, 12.00, 'Accessories');
+INSERT INTO item (item_ID, item_name, item_price)
+VALUES (0, '2-pack Face Mask in Bandana Print', 12.00);
 
 #Read
 SELECT * FROM item;
@@ -48,14 +48,14 @@ DELETE FROM customer WHERE customer_email = 'mm@gmail.com';
 
 -- My_Order
 #Create
-INSERT INTO my_order (my_order_ID, fk_customer_ID, my_order_placed)
-VALUES (0, 1, '2020-03-03');
+INSERT INTO my_order (my_order_ID, fk_customer_ID)
+VALUES (0, 1);
 
-INSERT INTO my_order (my_order_ID, fk_customer_ID, my_order_placed)
-VALUES (0, 2, '2020-04-03');
+INSERT INTO my_order (my_order_ID, fk_customer_ID)
+VALUES (0, 4);
 
-INSERT INTO my_order (my_order_ID, fk_customer_ID, my_order_placed)
-VALUES (0, 3, '2020-05-03');
+INSERT INTO my_order (my_order_ID, fk_customer_ID)
+VALUES (0, 3);
 
 #Read
 SELECT * FROM my_order;
@@ -64,7 +64,7 @@ SELECT my_order_placed, my_order_total FROM my_order;
 SELECT * from my_order ORDER BY my_order_placed;
 
 #Update
-UPDATE my_order SET my_order_ID = 100 WHERE my_order_placed = '2020-03-03';
+UPDATE my_order SET my_order_ID = 100 WHERE my_order_ID = 1;
 
 #Delete
 DELETE FROM my_order WHERE my_order_ID = 3;
@@ -72,13 +72,13 @@ DELETE FROM my_order WHERE my_order_ID = 3;
 -- Orderline
 #Create
 INSERT INTO orderline (orderline_ID, fk_my_order_ID, fk_item_ID)
-VALUES (0, 3, 1);
+VALUES (0, 2, 2);
 
 INSERT INTO orderline (orderline_ID, fk_my_order_ID, fk_item_ID)
-VALUES (0, 4, 5);
+VALUES (0, 4, 3);
 
 INSERT INTO orderline (orderline_ID, fk_my_order_ID, fk_item_ID)
-VALUES (0, 5, 8);
+VALUES (0, 100, 4);
 
 #Read
 SELECT * FROM orderline;

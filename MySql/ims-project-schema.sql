@@ -4,9 +4,7 @@ use shopdb;
 CREATE TABLE item (
     item_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(100) NOT NULL,
-    qty_ordered INT NOT NULL,
-    item_price DEC(7, 2) NOT NULL,
-    item_category VARCHAR(100) NOT NULL
+    item_price DEC(7, 2) NOT NULL
 );
 
 CREATE TABLE customer (
@@ -21,7 +19,7 @@ CREATE TABLE customer (
 CREATE TABLE my_order (
     my_order_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fk_customer_ID INT NOT NULL,
-    my_order_placed DATE,
+    my_order_placed timestamp default current_timestamp,
     my_order_total DEC(7 , 2 ),
     FOREIGN KEY (fk_customer_ID) REFERENCES customer (customer_ID)
 );
@@ -34,3 +32,4 @@ CREATE TABLE orderline (
     FOREIGN KEY (fk_my_order_ID) REFERENCES my_order (my_order_ID),
     FOREIGN KEY (fk_item_ID) REFERENCES item (item_ID)
 );
+show databases
