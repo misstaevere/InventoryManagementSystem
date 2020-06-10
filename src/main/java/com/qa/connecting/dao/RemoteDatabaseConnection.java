@@ -9,15 +9,18 @@ public class RemoteDatabaseConnection extends DatabaseConnection {
 		super(username, password);
 	}
 
-	// CREATE A CONSTRUCTOR TO MAKE SURE THE CODE RUNS EVERY TIME THERE IS A BASE
-	// CONNECTION
-	public void openConnection() { // only hardcode URL for security
-		// protocol:driver(mvn dependencies)
+	/*
+	 * CREATE A CONSTRUCTOR TO MAKE SURE THE CODE RUNS EVERY TIME THERE IS A BASE
+	 * CONNECTION
+	 */
+	public void openConnection() { /* only hardcode URL for security */
+		/* protocol:driver(mvn dependencies) */
 		try {
-			setConnection(DriverManager.getConnection("jdbc:mysql://34.53.233.12/shopdb", getUsername(), getPassword()));
+			setConnection(
+					DriverManager.getConnection("jdbc:mysql://34.105.176.129/shopdb", getUsername(), getPassword()));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Piers Confused");
 			e.printStackTrace();
-		} // AUTO GENERATE
+		}
 	}
 }

@@ -2,15 +2,16 @@ package com.qa.connecting.exceptions;
 
 public class ConnectionNotMadeException extends RuntimeException {
 
-	private String message;
+	private final String MESSAGE;
 
 	public ConnectionNotMadeException(String message) {
 		super();
-		this.message = message;
+		this.MESSAGE = message;
 	}
 
+	@Override
 	public String getMessage() {
-		return message;
+		return MESSAGE;
 	}
 	
 }

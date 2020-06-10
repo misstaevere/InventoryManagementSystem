@@ -1,14 +1,17 @@
 package com.qa.connecting.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.qa.connecting.exceptions.ConnectionNotMadeException;
+import org.apache.log4j.Logger;
 import com.qa.connecting.exceptions.SqlStatementNotUnderstoodException;
 
 public abstract class DatabaseConnection implements Openable, Closeable, Queryable {
+	
+	public static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class);
 
 	private Connection connection;
 	private String username;
@@ -20,16 +23,11 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 		openConnection();
 	}
 
-	
-	// next 2 methods override same methods in Connectable
-	public abstract void openConnection();
-
-	// closing a connection helps save resources in our application
+	/* closing a connection helps save resources in our application */
 	public void closeConnection() {
 		try {
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -37,8 +35,7 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 	public ResultSet sendQuery(String sql) {
 		try {
 			Statement statement = connection.createStatement();			
-			ResultSet resultSet = statement.executeQuery(sql);
-			return resultSet;
+			return statement.executeQuery(sql);
 		} catch (SQLException e) {
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
 		}
@@ -50,9 +47,13 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 			statement.executeUpdate(sql);
 			statement.close();			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
 		}
+	}
+	
+	public PreparedStatement getPreparedStatement(String sql) throws SQLException {
+		return connection.prepareStatement(sql);
 	}
 
 

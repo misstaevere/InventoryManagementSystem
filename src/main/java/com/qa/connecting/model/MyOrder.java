@@ -3,42 +3,71 @@ package com.qa.connecting.model;
 import java.sql.Date;
 
 public class MyOrder {
-	
-	int my_order_ID = 0;
-	// int fk_customer_ID;
-	Date my_order_placed;
-	Double my_order_total;
 
-	public MyOrder(int my_order_ID, Date my_order_placed, Double my_order_total) { // CONSTRUCTOR
+	int myOrderID;
+	int fkCustomerID;
+	Date myOrderPlaced;
+	Double myOrderTotal;
+
+	public MyOrder() {
+
+	}
+
+	public MyOrder(int myOrderID, int fkCustomerID, Date myOrderPlaced, Double myOrderTotal) { /* CONSTRUCTOR */
 		super();
-		this.my_order_ID = my_order_ID;
-		// this.fk_customer_ID = fk_customer_ID;
-		this.my_order_placed = my_order_placed;
-		this.my_order_total = my_order_total;
-		
+		this.myOrderID = myOrderID;
+		this.fkCustomerID = fkCustomerID;
+		this.myOrderPlaced = myOrderPlaced;
+		this.myOrderTotal = myOrderTotal;
+
 	}
 
-	public int getMy_order_ID() {
-		return my_order_ID;
+	public MyOrder(int myOrderID) {
+		super();
+		this.myOrderID = myOrderID;
 	}
 
-	public void setMy_order_ID(int my_order_ID) {
-		this.my_order_ID = my_order_ID;
+	public MyOrder(int myOrderID, int fkCustomerID) {
+		super();
+		this.myOrderID = myOrderID;
+		this.fkCustomerID = fkCustomerID;
 	}
 
-	public Date getMy_order_placed() {
-		return my_order_placed;
+	@Override
+	public String toString() {
+		return "MyOrder [myOrderID=" + myOrderID + ", fkCustomerID=" + fkCustomerID + ", myOrderPlaced=" + myOrderPlaced
+				+ ", myOrderTotal=" + myOrderTotal + "]";
 	}
 
-	public void setMy_order_placed(Date my_order_placed) {
-		this.my_order_placed = my_order_placed;
+	public int getMyOrderID() {
+		return myOrderID;
 	}
 
-	public Double getMy_order_total() {
-		return my_order_total;
+	public void setMyOrderID(int myOrderID) {
+		this.myOrderID = myOrderID;
 	}
 
-	public void setMy_order_total(Double my_order_total) {
-		this.my_order_total = my_order_total;
+	public int getFkCustomerID() {
+		return fkCustomerID;
+	}
+
+	public void setFkCustomerID(int fkCustomerID) {
+		this.fkCustomerID = fkCustomerID;
+	}
+
+	public Date getMyOrderPlaced() {
+		return myOrderPlaced;
+	}
+
+	public void setMyOrderPlaced(Date myOrderPlaced) {
+		this.myOrderPlaced = myOrderPlaced;
+	}
+
+	public Double getMyOrderTotal() {
+		return myOrderTotal;
+	}
+
+	public void setMyOrderTotal(Double myOrderTotal) {
+		this.myOrderTotal = myOrderTotal;
 	}
 }

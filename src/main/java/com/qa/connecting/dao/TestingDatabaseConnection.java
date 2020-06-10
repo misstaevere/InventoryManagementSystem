@@ -15,7 +15,6 @@ public class TestingDatabaseConnection extends DatabaseConnection { // same as r
 		try {
 			setConnection(DriverManager.getConnection("jdbc:mysql://127.0.0.1/testdb", getUsername(), getPassword()));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new ConnectionNotMadeException("Local database is not accessible: " + e.getMessage());
 		}

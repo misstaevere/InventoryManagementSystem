@@ -2,59 +2,80 @@ package com.qa.connecting.model; // MODELS OUR DATA
 
 public class Customer {
 
-	private int customer_ID = 0;
-	private String customer_first_name;
-	private String customer_last_name;
-	private String customer_email;
-	private String customer_password;
+	private int customerID;
+	private String foreName;
+	private String lastName;
+	private String customerEmail;
+	private String customerPassword;
 	
-	public Customer(int customer_ID, String customer_first_name, String customer_last_name, String customer_email,
-			String customer_password) {
+	public Customer() {
+		
+	}
+	
+	public Customer(String foreName, String lastName, String customerEmail,
+			String customerPassword) {
 		super();
-		this.customer_ID = customer_ID;
-		this.customer_first_name = customer_first_name;
-		this.customer_last_name = customer_last_name;
-		this.customer_email = customer_email;
-		this.customer_password = customer_password;
+		this.foreName = foreName;
+		this.lastName = lastName;
+		this.customerEmail = customerEmail;
+		this.customerPassword = customerPassword;
+	}
+	
+	public Customer(int customerID, String foreName) {
+		super();
+		this.customerID = customerID;
+		this.foreName = foreName;
+	}
+	
+	public Customer(String foreName, String lastName) {
+		super();
+		this.foreName = foreName;
+		this.lastName = lastName;
 	}
 
-	public int getCustomer_ID() {
-		return customer_ID;
+	@Override
+	public String toString() {
+		return "Customer [customerID=" + customerID + ", foreName=" + foreName + ", lastName=" + lastName
+				+ ", customerEmail=" + customerEmail + ", customerPassword=" + customerPassword + "]";
 	}
 
-	public void setCustomer_ID(int customer_ID) {
-		this.customer_ID = customer_ID;
+	public int getCustomerID() {
+		return customerID;
 	}
 
-	public String getCustomer_first_name() {
-		return customer_first_name;
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
 	}
 
-	public void setCustomer_first_name(String customer_first_name) {
-		this.customer_first_name = customer_first_name;
+	public String getCustomerForeName() {
+		return foreName;
 	}
 
-	public String getCustomer_last_name() {
-		return customer_last_name;
+	public void setCustomerForeName(String foreName) {
+		this.foreName = foreName;
 	}
 
-	public void setCustomer_last_name(String customer_last_name) {
-		this.customer_last_name = customer_last_name;
+	public String getCustomerLastName() {
+		return lastName;
 	}
 
-	public String getCustomer_email() {
-		return customer_email;
+	public void setCustomerLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public void setCustomer_email(String customer_email) {
-		this.customer_email = customer_email;
+	public String getCustomerEmail() {
+		return customerEmail;
 	}
 
-	public String getCustomer_password() {
-		return customer_password;
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
 	}
 
-	public void setCustomer_password(String customer_password) {
-		this.customer_password = customer_password;
+	public String getCustomerPassword() {
+		return customerPassword;
+	}
+
+	public void setCustomerPassword(String customerPassword) {
+		this.customerPassword = customerPassword;
 	}
 }

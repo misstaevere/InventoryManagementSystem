@@ -70,7 +70,7 @@ public class CustomerDaoTest {
 	@Test
 	public void test() throws SQLException {
 		CustomerDao customerdao = new CustomerDao(databaseConnection); // instance of a class we are testing
-		Customer test = new Customer(0, "Rosa", "Rudd", "rosa@gmail.com", "ilovemydog");
+		Customer test = new Customer("Rosa", "Rudd", "rosa@gmail.com", "ilovemydog");
 		customerdao.insertCustomer(test); // executing the method
 
 		String query = "SELECT * FROM customer"; // all below is to verify it worked correctly

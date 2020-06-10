@@ -1,59 +1,61 @@
 package com.qa.connecting.model;
 
 public class Item {
-	
-	int item_ID = 0;
-	String item_name;
-	int qty_ordered;
-	double item_price;
-	String item_category;
 
-	public Item(int item_ID, String item_name, int qty_ordered, double item_price, String item_category) { // CONSTRUCTOR
-		super();
-		this.item_ID = item_ID;
-		this.item_name = item_name;
-		this.qty_ordered = qty_ordered;
-		this.item_price = item_price;
-		this.item_category = item_category;
+	int itemID;
+	String itemName;
+	double itemPrice;
+
+	public Item() {
+
 	}
 
-	public int getItem_ID() {
-		return item_ID;
+	public Item(int itemID, String itemName, double itemPrice) { // CONSTRUCTOR
+		this.itemID = itemID;
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
 	}
 
-	public void setItem_ID(int item_ID) {
-		this.item_ID = item_ID;
+	public Item(String itemName, double itemPrice) {
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
 	}
 
-	public String getItem_name() {
-		return item_name;
+	public Item(int itemID) {
+		this.itemID = itemID;
 	}
 
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public Item(int itemPrice, int itemID) {
+		this.itemPrice = itemPrice;
+		this.itemID = itemID;
 	}
 
-	public int getQty_ordered() {
-		return qty_ordered;
+	@Override
+	public String toString() {
+		return "Item [itemID=" + itemID + ", itemName=" + itemName + ", itemPrice=" + itemPrice + "]";
 	}
 
-	public void setQty_ordered(int qty_ordered) {
-		this.qty_ordered = qty_ordered;
+	public int getItemID() {
+		return itemID;
 	}
 
-	public double getItem_price() {
-		return item_price;
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
 	}
 
-	public void setItem_price(double item_price) {
-		this.item_price = item_price;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public String getItem_category() {
-		return item_category;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
-	public void setItem_category(String item_category) {
-		this.item_category = item_category;
+	public double getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(double itemPrice) {
+		this.itemPrice = itemPrice;
 	}
 }

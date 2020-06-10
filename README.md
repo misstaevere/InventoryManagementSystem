@@ -34,3 +34,43 @@ When considering the entities in this domain:
 7. I have reports for tests in the root of the project repository.
 
 Finally I have a running, working and tested application which takes in user input and can create, read, update and delete customers, items and orders. 
+
+### Prerequisites
+
+```
+Java 1.8
+MySQL 1.2.17
+Maven 2.4
+```
+### Installing
+
+```
+git clone git@github.com:misstaevere/InventoryManagementSystem.git
+cd InventoryManagementSystem/
+mvn package
+java -jar Kat-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+```
+
+### To run tests 
+
+In the directory where pom.xml is run:
+
+```
+mvn test
+```
+This runs the tests using a suitable testing framework, these tests should not require the code to be packaged or deployed.
+
+## Authors
+
+* **Kärt Taevere** - *Initial work* - [misstaevere](https://github.com/misstaevere)
+
+## License
+
+This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
+
+*For help in [Choosing a license](https://choosealicense.com/)*
+
+## Acknowledgments
+
+* Thanks to our very patient QA trainers Chris Perrins, Piers Barber and Alan Davis
+* also the training wouldn't have been the same without Mya the cat
