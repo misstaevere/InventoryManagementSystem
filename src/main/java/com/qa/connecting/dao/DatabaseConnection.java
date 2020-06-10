@@ -38,6 +38,8 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 			return statement.executeQuery(sql);
 		} catch (SQLException e) {
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
+		} finally {
+			closeConnection();
 		}
 	}
 
