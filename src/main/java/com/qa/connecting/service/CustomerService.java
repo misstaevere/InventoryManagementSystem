@@ -30,11 +30,9 @@ public class CustomerService {
 			for(Customer customer: customers) {
 				LOGGER.info(customer);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | NotFoundException e) {
 			new LogErrors().log(LOGGER, e);
-		} catch (NotFoundException e) {
-			new LogErrors().log(LOGGER, e);
-		}
+		} 
 		
 	}
 
@@ -42,7 +40,6 @@ public class CustomerService {
 		try {
 			customerDao.updateCustomerName(customer);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			new LogErrors().log(LOGGER, e);
 		}
 	}

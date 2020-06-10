@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import com.qa.connecting.exceptions.SqlStatementNotUnderstoodException;
 
 public abstract class DatabaseConnection implements Openable, Closeable, Queryable {
-	
+
 	public static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class);
 
 	private Connection connection;
@@ -28,15 +28,17 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 		try {
 			connection.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			LOGGER.error(e.getMessage());
+			throw new SqlStatementNotUnderstoodException("Unsuccessful");
+		} 
 	}
 
 	public ResultSet sendQuery(String sql) {
 		try {
-			Statement statement = connection.createStatement();			
+			Statement statement = connection.createStatement();
 			return statement.executeQuery(sql);
 		} catch (SQLException e) {
+			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
 		} finally {
 			closeConnection();
@@ -47,46 +49,41 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(sql);
-			statement.close();			
+			statement.close();
 		} catch (SQLException e) {
 			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
+		} finally {
+			closeConnection();
 		}
 	}
-	
+
 	public PreparedStatement getPreparedStatement(String sql) throws SQLException {
 		return connection.prepareStatement(sql);
 	}
-
 
 	public Connection getConnection() {
 		return connection;
 	}
 
-
 	public void setConnection(Connection connection) {
 		this.connection = connection;
 	}
-
 
 	public String getUsername() {
 		return username;
 	}
 
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 }

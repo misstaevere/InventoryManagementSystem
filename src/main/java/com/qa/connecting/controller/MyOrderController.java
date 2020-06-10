@@ -1,7 +1,5 @@
 package com.qa.connecting.controller;
 
-import java.sql.Date;
-
 import org.apache.log4j.Logger;
 
 import com.qa.connecting.model.MyOrder;

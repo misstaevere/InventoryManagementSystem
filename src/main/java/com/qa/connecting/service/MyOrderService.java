@@ -30,11 +30,9 @@ public class MyOrderService {
 			for (MyOrder myOrder : orders) {
 				LOGGER.info(myOrder);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | NotFoundException e) {
 			new LogErrors().log(LOGGER, e);
-		} catch (NotFoundException e) {
-			new LogErrors().log(LOGGER, e);
-		}
+		} 
 
 	}
 

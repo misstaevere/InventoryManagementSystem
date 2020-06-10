@@ -30,11 +30,9 @@ public class ItemService {
 			for (Item item : items) {
 				LOGGER.info(item);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | NotFoundException e) {
 			new LogErrors().log(LOGGER, e);
-		} catch (NotFoundException e) {
-			new LogErrors().log(LOGGER, e);
-		}
+		} 
 
 	}
 

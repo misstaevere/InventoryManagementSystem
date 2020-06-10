@@ -80,7 +80,7 @@ public class CustomerDao { // DATA ACCESS OBJECT - WILL BE SENDING DATA
 
 		int rowsDeleted = statement.executeUpdate();
 		if (rowsDeleted > 0) {
-			System.out.println("User records were successfully deleted!");
+			LOGGER.info("User records were successfully deleted!");
 		}
 	}
 }
