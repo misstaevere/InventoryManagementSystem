@@ -1,6 +1,6 @@
 package com.qa.connecting.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,17 +17,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.qa.connecting.model.Customer;
+import com.qa.connecting.model.Item;
 
-public class CustomerDaoTest {
-
+public class ItemDaoTest {
+	
 	static DatabaseConnection databaseConnection;
 	static final String SCHEMA_LOCATION = "src/test/resources/ims-project-schema.sql";
 	static final String DATA_LOCATION = "src/test/resources/ims-project-data.sql";
 	static final String CLEAR_LOCATION = "src/test/resources/ims-project-deleteDB.sql";
 	static final String TERMINATE_LOCATION = "src/test/resources/ims-project-terminateDB.sql";
 
-	// Reading through the files with the BufferedReader, we car read any file and
+	// Reading through the files with the BufferedReader, we can read any file and
 	// execute it on our testdb
 	private static void sendToDB(Connection connection, String fileLocation) {
 		try (BufferedReader br = new BufferedReader(new FileReader(fileLocation));) {
@@ -69,11 +69,11 @@ public class CustomerDaoTest {
 
 	@Test
 	public void test() throws SQLException {
-		CustomerDao customerDao = new CustomerDao(databaseConnection); // instance of a class we are testing
-		Customer test = new Customer("Rosa", "Rudd", "rosa@gmail.com", "ilovemydog");
-		customerDao.insertCustomer(test); // executing the method
+		ItemDao itemDao = new ItemDao(databaseConnection); // instance of a class we are testing
+		Item test = new Item("Socks with stripes", 9);
+		itemDao.insertItem(test); // executing the method
 
-		String query = "SELECT * FROM customer"; // all below is to verify it worked correctly
+		String query = "SELECT * FROM item"; // all below is to verify it worked correctly
 		ResultSet rs = databaseConnection.sendQuery(query);
 
 		int count = 0;

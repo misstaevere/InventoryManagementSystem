@@ -30,10 +30,11 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 		} catch (SQLException e) {
 			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Unsuccessful");
-		} 
+		}
 	}
 
 	public ResultSet sendQuery(String sql) {
+		Statement stmt = null;
 		try {
 			Statement statement = connection.createStatement();
 			return statement.executeQuery(sql);
@@ -41,11 +42,18 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
 		} finally {
-			closeConnection();
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					LOGGER.error(e.getMessage());
+				}
+			}
 		}
 	}
 
 	public void sendUpdate(String sql) {
+		Statement stmt = null;
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(sql);
@@ -54,7 +62,13 @@ public abstract class DatabaseConnection implements Openable, Closeable, Queryab
 			LOGGER.error(e.getMessage());
 			throw new SqlStatementNotUnderstoodException("Could not query with " + sql);
 		} finally {
-			closeConnection();
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					LOGGER.error(e.getMessage());
+				}
+			}
 		}
 	}
 

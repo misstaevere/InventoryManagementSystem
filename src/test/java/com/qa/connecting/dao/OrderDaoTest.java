@@ -1,6 +1,6 @@
 package com.qa.connecting.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,10 +17,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.qa.connecting.model.Customer;
+import com.qa.connecting.model.MyOrder;
 
-public class CustomerDaoTest {
-
+public class OrderDaoTest {
+	
 	static DatabaseConnection databaseConnection;
 	static final String SCHEMA_LOCATION = "src/test/resources/ims-project-schema.sql";
 	static final String DATA_LOCATION = "src/test/resources/ims-project-data.sql";
@@ -69,11 +69,11 @@ public class CustomerDaoTest {
 
 	@Test
 	public void test() throws SQLException {
-		CustomerDao customerDao = new CustomerDao(databaseConnection); // instance of a class we are testing
-		Customer test = new Customer("Rosa", "Rudd", "rosa@gmail.com", "ilovemydog");
-		customerDao.insertCustomer(test); // executing the method
+		MyOrderDao myOrderDao = new MyOrderDao(databaseConnection); // instance of a class we are testing
+		MyOrder test = new MyOrder(0, 1);
+		myOrderDao.insertMyOrder(test); // executing the method
 
-		String query = "SELECT * FROM customer"; // all below is to verify it worked correctly
+		String query = "SELECT * FROM my_order"; // all below is to verify it worked correctly
 		ResultSet rs = databaseConnection.sendQuery(query);
 
 		int count = 0;

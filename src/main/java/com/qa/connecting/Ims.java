@@ -35,12 +35,6 @@ public class Ims {
 		 * LOGGER.fatal("RIP");
 		 */
 
-		/*
-		 * // Below needs to be similar to Garage project // where different type of
-		 * objects can be built and different inputs are // required //
-		 * --------------------------
-		 */
-
 		LOGGER.info("What would you like to do? Choose from the following: "); /* Insert, Read, Update, Delete, Exit */
 
 		for (Action action : Action.values()) {
@@ -59,43 +53,46 @@ public class Ims {
 			}
 		}
 
-		for (Tables tables : Tables.values()) {
-			LOGGER.info(tables.name());
-		}
-
-		Tables selectedTables;
-
-		while (true) {
-			try {
-				String tablesInput = input.getInput();
-				selectedTables = Tables.valueOf(tablesInput.toUpperCase());
-				break;
-			} catch (IllegalArgumentException e) {
-				LOGGER.warn("Not a valid option, try again!");
+	//	while (!(selectedAction == Action.EXIT)) {
+			for (Tables tables : Tables.values()) {
+				LOGGER.info(tables.name());
 			}
-		}
 
-		switch (selectedTables) {
-		case CUSTOMER:
-			customerChoice(selectedAction);
-			break;
-		case ITEM:
-			itemChoice(selectedAction);
-			break;
-		case ORDER:
-			orderChoice(selectedAction);
-			break;
-		case RESTART:
-			break;
-		case EXIT:
-			System.exit(0);
-			break;
-		default:
-			break;
-		}
+			Tables selectedTables;
+
+			while (true) {
+				try {
+					String tablesInput = input.getInput();
+					selectedTables = Tables.valueOf(tablesInput.toUpperCase());
+					break;
+				} catch (IllegalArgumentException e) {
+					LOGGER.warn("Not a valid option, try again!");
+				}
+			}
+
+			switch (selectedTables) {
+			case CUSTOMER:
+				customerChoice(selectedAction);
+				break;
+			case ITEM:
+				itemChoice(selectedAction);
+				break;
+			case ORDER:
+				orderChoice(selectedAction);
+				break;
+			case RESTART:
+				break;
+			case EXIT:
+				System.exit(0);
+				break;
+			default:
+				break;
+			}
+		//} return 
 	}
 
 	public void customerChoice(Action action) {
+
 		CustomerController controller = new CustomerController(input, new CustomerService(new CustomerDao(connection)));
 		switch (action) {
 		case INSERT:
