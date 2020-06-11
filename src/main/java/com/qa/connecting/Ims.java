@@ -29,12 +29,6 @@ public class Ims {
 
 	public void start() {
 
-		/*
-		 * LOGGER.trace("Trace"); LOGGER.debug("Debugging"); LOGGER.info("FYI");
-		 * LOGGER.warn("I'm warning you"); LOGGER.error("Does not compute");
-		 * LOGGER.fatal("RIP");
-		 */
-
 		LOGGER.info("What would you like to do? Choose from the following: "); /* Insert, Read, Update, Delete, Exit */
 
 		for (Action action : Action.values()) {
@@ -53,42 +47,40 @@ public class Ims {
 			}
 		}
 
-	//	while (!(selectedAction == Action.EXIT)) {
-			for (Tables tables : Tables.values()) {
-				LOGGER.info(tables.name());
-			}
+		for (Tables tables : Tables.values()) {
+			LOGGER.info(tables.name());
+		}
 
-			Tables selectedTables;
+		Tables selectedTables;
 
-			while (true) {
-				try {
-					String tablesInput = input.getInput();
-					selectedTables = Tables.valueOf(tablesInput.toUpperCase());
-					break;
-				} catch (IllegalArgumentException e) {
-					LOGGER.warn("Not a valid option, try again!");
-				}
+		while (true) {
+			try {
+				String tablesInput = input.getInput();
+				selectedTables = Tables.valueOf(tablesInput.toUpperCase());
+				break;
+			} catch (IllegalArgumentException e) {
+				LOGGER.warn("Not a valid option, try again!");
 			}
+		}
 
-			switch (selectedTables) {
-			case CUSTOMER:
-				customerChoice(selectedAction);
-				break;
-			case ITEM:
-				itemChoice(selectedAction);
-				break;
-			case ORDER:
-				orderChoice(selectedAction);
-				break;
-			case RESTART:
-				break;
-			case EXIT:
-				System.exit(0);
-				break;
-			default:
-				break;
-			}
-		//} return 
+		switch (selectedTables) {
+		case CUSTOMER:
+			customerChoice(selectedAction);
+			break;
+		case ITEM:
+			itemChoice(selectedAction);
+			break;
+		case ORDER:
+			orderChoice(selectedAction);
+			break;
+		case RESTART:
+			break;
+		case EXIT:
+			System.exit(0);
+			break;
+		default:
+			break;
+		}
 	}
 
 	public void customerChoice(Action action) {
