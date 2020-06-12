@@ -73,4 +73,5 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Thanks to our very patient QA trainers Chris Perrins, Piers Barber and Alan Davis
-* also the training wouldn't have been the same without Mya the cat
+* Thanks to all the fabulous girls in this cohort, GIRL POWER!
+* I will miss Mya the cat, good luck Chris!
